@@ -2,7 +2,7 @@ import os
 import discord
 from discord.ext import commands
 
-TOKEN = ""
+TOKEN = "NzM3MzMyNTkwNjk1OTQwMjA4.Xx70fA.lfW3XHxr-Pgb7hUlPFOJrmFFmgg"
 client = commands.Bot(command_prefix="!")
 
 @client.event
@@ -12,7 +12,7 @@ async def on_ready():
     print(f"Estás corriendo la versión {discord.__version__} de discord.py")
     print("---"*20)
     print("")
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("with DOCTYPE"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("with b0ss@192"))
 
 @client.event
 async def on_raw_reaction_add(payload):
@@ -22,6 +22,10 @@ async def on_raw_reaction_add(payload):
     if message_id == 738157656535072836: 
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, client.guilds)
+        
+@client.event
+async def on_raw_reaction_remove(payload):
+    pass
 
 if __name__ == "__main__":
     print("Cargando los cogs...")

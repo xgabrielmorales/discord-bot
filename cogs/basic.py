@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-url_twitch = "https://www.twitch.com/xgabrielmorales"
+url_twitch = "https://www.twitch.tv/b0ssat192"
 
 class Basic(commands.Cog):
     def __init__(self, client):
@@ -13,7 +13,7 @@ class Basic(commands.Cog):
 
         embed = discord.Embed(
             title = f"¡Hola {ctx.author.name}!",
-            description = f"Bienvenido al server de Discord de DOCTYPE! Un servidor hecho para la comunidad de xGabrielMorales en [twitch]({url_twitch})!",
+            description = f"Bienvenido al server! Un canal hecho para la comunidad de b0ssAT192 en [twitch]({url_twitch})!",
             colour = discord.Colour.green()
         )
 
