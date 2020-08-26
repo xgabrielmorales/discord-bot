@@ -2,7 +2,6 @@ import os
 import discord
 from discord.ext import commands
 
-TOKEN = open("TOKEN", mode="r").readline().strip()
 client = commands.Bot(command_prefix="!")
 
 @client.event
@@ -20,4 +19,4 @@ if __name__ == "__main__":
         if filename.endswith(".py"):
             client.load_extension(f"cogs.{filename[:-3]}")
 
-    client.run(TOKEN)
+    client.run(os.environ["DISCORD_TOKEN"])
