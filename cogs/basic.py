@@ -8,18 +8,19 @@ class Basic(commands.Cog):
         self.client = client
 
     @commands.command()
+    @commands.has_permissions(manage_messages=True)
     async def info(self, ctx):
         """Server info and rules. Don't break the rules little bitch"""
 
         embed = discord.Embed(
             title = f"!Hola!",
-            description = f"Bienvenido a este server hecho para la comunidad de xGabrielMorales en Twitch!",
+            description = f"Bienvenida/o a este server hecho para la comunidad de xGabrielMorales en Twitch!",
             colour = discord.Colour.green()
         )
 
         embed.add_field(
             name = "Reglas",
-            value = "Sé siempre respetuoso y educado.\n No se tolera el acoso ni el spam.\n Es de mal gusto escribir en mayusculas.",
+            value = "Sé siempre respetuosa/o y educada/o.\n No se tolera el acoso ni el spam.\n Es de mal gusto escribir en mayusculas.",
             inline=True
         )
 
@@ -27,6 +28,12 @@ class Basic(commands.Cog):
             name = "Fecha de creación",
             value="28/Jul/2020",
             inline=True
+        )
+
+        embed.add_field(
+            name="Roles",
+            value="¡Sé parte del proletariado! Reacciona a este mensaje con un granjero para acceder a otros canales.",
+            inline=False
         )
 
         await ctx.send(embed = embed)

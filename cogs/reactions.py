@@ -8,60 +8,57 @@ class Reactions(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         message_id = payload.message_id
-        if message_id == 747925275014332486:
-            guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
+        guild_id = payload.guild_id
+        guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
 
-            # Green Red
-            if payload.emoji.name == "🔴":
+        if message_id == 748146277140922400:
+            if payload.emoji.name == "👨‍🌾":
+                role   = discord.utils.get(guild.roles, name="Proletariado")
+                member = discord.utils.find(lambda member: member.id == payload.user_id, guild.members)
+
+                await member.add_roles(role) if member else print("User not found")
+
+        if message_id == 748157275893530684:
+            print(payload.emoji.name)
+            if payload.emoji.name == "🔴": # Red Role
                 role = discord.utils.get(guild.roles, name="Red")
-            # Green Blue
-            if payload.emoji.name == "🔵":
+            if payload.emoji.name == "🔵": # Blue Role
                 role = discord.utils.get(guild.roles, name="Blue")
-            # Green Role
-            if payload.emoji.name == "🟢":
+            if payload.emoji.name == "🟢": # Green Role
                 role = discord.utils.get(guild.roles, name="Green")
-            # Green Yellow
-            if payload.emoji.name == "🟠":
+            if payload.emoji.name == "🟡": # Yellow Role
                 role = discord.utils.get(guild.roles, name="Yellow")
 
-            if role is not None:
-                member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
-                if member is not None:
-                    await member.add_roles(role)
-                else:
-                    print("User not found.")
-            else:
-                print("Role not found.")
-
+            if role:
+                member = discord.utils.find(lambda member: member.id == payload.user_id, guild.members)
+                await member.add_roles(role) if member else print("User not found")
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
         message_id = payload.message_id
-        if message_id == 747925275014332486:
-            guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
+        guild_id = payload.guild_id
+        guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
 
-            # Green Red
-            if payload.emoji.name == "🔴":
+        if message_id == 748146277140922400:
+            if payload.emoji.name == "👨‍🌾":
+                role   = discord.utils.get(guild.roles, name="Proletariado")
+                member = discord.utils.find(lambda member: member.id == payload.user_id, guild.members)
+
+                await member.remove_roles(role) if member else print("User not found")
+
+        if message_id == 748157275893530684:
+            if payload.emoji.name == "🔴": # Red Role
                 role = discord.utils.get(guild.roles, name="Red")
-            # Green Blue
-            if payload.emoji.name == "🔵":
+            if payload.emoji.name == "🔵": # Blue Role
                 role = discord.utils.get(guild.roles, name="Blue")
-            # Green Role
-            if payload.emoji.name == "🟢":
+            if payload.emoji.name == "🟢": # Green Role
                 role = discord.utils.get(guild.roles, name="Green")
-            # Green Yellow
-            if payload.emoji.name == "🟠":
+            if payload.emoji.name == "🟡": # Yellow Role
                 role = discord.utils.get(guild.roles, name="Yellow")
 
             if role:
                 member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
-                if member:
-                    await member.remove_roles(role)
-                    print(f"Member {member} has been removed from {role} role.")
-                else:
-                    print("User not found.")
+                await member.remove_roles(role) if member else print("User not found")
             else:
                 print("Role not found.")
 
