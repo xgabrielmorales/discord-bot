@@ -9,15 +9,15 @@ class Media(commands.Cog):
 
     @commands.command()
     async def video(self, ctx, *search):
-        """Pideme buscar un video de youtube con el comando !video y te lo trearé."""
+        """Pideme un video de youtube y te lo trearé."""
 
         if search:
             YOUTUBE_URL = "https://www.youtube.com/"
-            YOUTUBE_QUERY_URL = YOUTUBE_URL + "results?search_query="
+            YOUTUBE_QUERY_URL = YOUTUBE_URL + "results?search_query = "
 
             query    = "+".join(search)
             response = requests.get(YOUTUBE_QUERY_URL + query)
-            results  = re.findall(r"watch\?v=\S{11}", response.text)
+            results  = re.findall(r"watch\?v = \S{11}", response.text)
 
             await ctx.send(YOUTUBE_URL + results[0])
 

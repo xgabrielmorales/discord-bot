@@ -11,23 +11,15 @@ class Reactions(commands.Cog):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
 
-        if message_id == 748146277140922400:
+        if message_id == 749516015284781068:
             if payload.emoji.name == "👨‍🌾":
-                role   = discord.utils.get(guild.roles, name="Proletariado")
+                role   = discord.utils.get(guild.roles, name = "Proletariado")
                 member = discord.utils.find(lambda member: member.id == payload.user_id, guild.members)
 
                 await member.add_roles(role) if member else print("User not found")
-
-        if message_id == 748157275893530684:
-            print(payload.emoji.name)
-            if payload.emoji.name == "🔴": # Red Role
-                role = discord.utils.get(guild.roles, name="Red")
-            if payload.emoji.name == "🔵": # Blue Role
-                role = discord.utils.get(guild.roles, name="Blue")
-            if payload.emoji.name == "🟢": # Green Role
-                role = discord.utils.get(guild.roles, name="Green")
-            if payload.emoji.name == "🟡": # Yellow Role
-                role = discord.utils.get(guild.roles, name="Yellow")
+        if message_id == 749517027479388243:
+            if payload.emoji.name == "🐧": # Pinguino
+                role = discord.utils.get(guild.roles, name = "Dev")
 
             if role:
                 member = discord.utils.find(lambda member: member.id == payload.user_id, guild.members)
@@ -39,22 +31,16 @@ class Reactions(commands.Cog):
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
 
-        if message_id == 748146277140922400:
+        if message_id == 749516015284781068:
             if payload.emoji.name == "👨‍🌾":
-                role   = discord.utils.get(guild.roles, name="Proletariado")
+                role   = discord.utils.get(guild.roles, name = "Proletariado")
                 member = discord.utils.find(lambda member: member.id == payload.user_id, guild.members)
 
                 await member.remove_roles(role) if member else print("User not found")
 
-        if message_id == 748157275893530684:
-            if payload.emoji.name == "🔴": # Red Role
-                role = discord.utils.get(guild.roles, name="Red")
-            if payload.emoji.name == "🔵": # Blue Role
-                role = discord.utils.get(guild.roles, name="Blue")
-            if payload.emoji.name == "🟢": # Green Role
-                role = discord.utils.get(guild.roles, name="Green")
-            if payload.emoji.name == "🟡": # Yellow Role
-                role = discord.utils.get(guild.roles, name="Yellow")
+        if message_id == 749517027479388243:
+            if payload.emoji.name == "🐧": # Pinguino
+                role = discord.utils.get(guild.roles, name = "Dev")
 
             if role:
                 member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
